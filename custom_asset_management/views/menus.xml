@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_custom_asset_management" name="Custom Asset Management" sequence="10" web_icon="custom_asset_management,static/description/icon.png"/>
+
+
+        <menuitem id="menu_asset_asset" name="Assets" parent="menu_custom_asset_management" action="action_asset_asset" sequence="20"/>
+
+        <menuitem name="Asset Category" id="menu_asset_category" parent="menu_custom_asset_management" action="action_asset_category" sequence="30"/>
+
+
+
+    </data>
+</odoo>
