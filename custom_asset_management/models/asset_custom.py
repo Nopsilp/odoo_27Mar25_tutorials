@@ -43,6 +43,7 @@ class AssetAsset(models.Model):
     current_value = fields.Float(
         string='Current Value',
         compute='_compute_current_value',
+        inverse='_inverse_compute_current_value',
         store=True,
     )
 
@@ -54,7 +55,10 @@ class AssetAsset(models.Model):
         default=lambda self: self.env['hr.employee'].search([], limit=1),
     )
 
-    
+
+
+
+
     @api.depends('value', 'depreciation_rate', 'purchase_date')
     def _compute_current_value(self):
         """
@@ -66,7 +70,20 @@ class AssetAsset(models.Model):
             if record.purchase_date:
                 years = (fields.Date.today() - record.purchase_date).days / 365.0
                 record.current_value = record.value *(1 - (record.depreciation_rate / 100) * years)
-    
+
+
+    @api.onchange('current_value')
+    def _onchange_current_value(self):
+        self._inverse_compute_current_value()
+
+
+    def _inverse_compute_current_value(self):
+        for record in self:
+            if record.purchase_date:
+                years = (fields.Date.today() - record.purchase_date).days / 365.0
+                record.value = record.current_value / (1 - (record.depreciation_rate / 100) * years)
+
+
 
     @api.constrains('category_id', 'employee_id')
     def _check_m2o_fields(self):
