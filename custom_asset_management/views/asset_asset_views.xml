@@ -38,7 +38,7 @@
                             <field name="value"/>
                             <field name="purchase_date"/>
                             <field name="depreciation_rate"/>
-                            <field name="current_value" readonly="1"/>
+                            <field name="current_value"/>
                             <field name="employee_id"/>
                         </group>
                     </sheet>
