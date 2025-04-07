@@ -1,0 +1,7 @@
+<odoo>
+    <menuitem id="menu_cron_demo" name="Custom Cron" sequence='10' />
+
+    <menuitem name=
+    "Custom Record" id="menu_custom_record" parent="menu_cron_demo" action="action_custom_record" sequence='20'/>
+
+</odoo>

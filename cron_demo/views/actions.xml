@@ -1,0 +1,14 @@
+<odoo>
+    <!-- Action custom.record -->
+    <record id="action_custom_record" model="ir.actions.act_window">
+        <field name="name">Manage Custom Record</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">custom.record</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no custom record. click here to add a new custom record.
+            </p>
+        </field>
+    </record>
+</odoo>

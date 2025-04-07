@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form: custom.record in custom_record.py-->
+        <record id="view_custom_record_form" model="ir.ui.view">
+            <field name="name">view.custom.record.form</field>
+            <field name="model">custom.record</field>
+            <field name="arch" type="xml">
+                <form string="Custom Record">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="status" placeholder="status..." />                        
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- List: custom.record in custom_record.py-->
+        <record id="view_custom_record_list" model="ir.ui.view">
+            <field name="name">view.custom.record.list</field>
+            <field name="model">custom.record</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+
+    </data>
+</odoo>
