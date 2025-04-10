@@ -10,7 +10,7 @@ class DiscountedProductsController(WebsiteSale):
         # Fetch products with discounts
         products = http.request.env['product.template'].search([('discount', '>', 0)])
 
-        return http.request.render('discount_products.products_discounted', {
+        return http.request.render('discount_product.products_discounted', {
             'products': products,
         })
 
