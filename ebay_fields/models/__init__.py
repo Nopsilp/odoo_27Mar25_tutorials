@@ -1,0 +1,1 @@
+from . import ebay_product_fields
