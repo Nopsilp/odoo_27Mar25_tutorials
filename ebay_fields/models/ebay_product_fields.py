@@ -1,5 +1,8 @@
 from odoo import models, fields, api, _
 
+"""
+    This module is for adding ebay fields to the product template
+"""
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'

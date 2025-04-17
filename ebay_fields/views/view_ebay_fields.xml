@@ -12,7 +12,7 @@
                         <field name="ebay_listing_status"/>
                         <field name="ebay_price"/>
                         <field name="ebay_stock"/>
-                        <field name="ebay_listing_url"/>
+                        <field name="ebay_listing_url" widget='url'/>
                     </group>
                 </xpath>
             </field>            
