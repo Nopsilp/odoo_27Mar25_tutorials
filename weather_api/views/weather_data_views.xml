@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- View weather.data View List -->
+        <record id="view_weather_data_list" model="ir.ui.view">
+            <field name="name">view.weather.data.list</field>
+            <field name="model">weather.data</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="location"/>
+                    <field name="temperature"/>
+                    <field name="condition"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- View weather.data form -->
+        <record id="view_weather_data_form" model="ir.ui.view">
+            <field name="name">view.weather.data.form</field>
+            <field name="model">weather.data</field>
+            <field name="arch" type="xml">
+                <form string="Weather Data">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!-- Corrected Button with Combined Classes -->
+                            <button class="oe_stat_button btn-primary" name="store_weather_data"
+                                    type="object" icon="fa-cloud">
+                                <div class="o_stat_info">
+                                    <span class="o_stat_value">Fetch</span>
+                                    <span class="o_stat_text">Weather</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="location"/>
+                            <h1>
+                                <field name="location" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="temperature"/>
+                            <field name="condition"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action weather.data -->
+        <record id="action_weather_data" model="ir.actions.act_window">
+            <field name="name">Weather Data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">weather.data</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Weather Data.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_weather_api_root" name="Weather API" sequence="10"/>
+        <menuitem id="menu_weather_data" name="Weather Data" parent="menu_weather_api_root" action="action_weather_data" sequence="20"/>
+    </data>
+</odoo>
